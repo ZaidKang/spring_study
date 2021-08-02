@@ -18,7 +18,7 @@ public class SpringMemberSaveControllerV1 {
     private static MemberRepository memberRepository = MemberRepository.getInstance();
 
     @RequestMapping("springmvc/v1/members/save")
-    public ModelAndView process(HttpServletRequest request, HttpServletResponse response){
+    public ModelAndView process(HttpServletRequest request, HttpServletResponse response) {
 
         String username = request.getParameter("username");
         int age = Integer.parseInt(request.getParameter("age"));
@@ -30,7 +30,6 @@ public class SpringMemberSaveControllerV1 {
         mv.addObject("member", member);
 
         return mv;
-
 
 
     }

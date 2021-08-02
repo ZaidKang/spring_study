@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name="mvcMemberFormServlet", urlPatterns = "/servlet-mvc/members/new-form")
+@WebServlet(name = "mvcMemberFormServlet", urlPatterns = "/servlet-mvc/members/new-form")
 public class MvcMemberFormServlet extends HttpServlet {
 
     @Override
@@ -19,7 +19,7 @@ public class MvcMemberFormServlet extends HttpServlet {
         String viewPath = "/WEB-INF/views/new-form.jsp";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
 
     }
 }

@@ -37,10 +37,10 @@ public class SpringMemberControllerV3 {
     }
 
     @GetMapping
-    public String memberList(Model model){
+    public String memberList(Model model) {
         List<Member> members = memberRepository.findAll();
 
-        model.addAttribute("members",members);
+        model.addAttribute("members", members);
 
         return "members";
     }

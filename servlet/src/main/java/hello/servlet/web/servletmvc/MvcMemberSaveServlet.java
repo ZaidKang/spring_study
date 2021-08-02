@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "mvcMemberSaveServelt",urlPatterns = "/servlet-mvc/members/save" )
+@WebServlet(name = "mvcMemberSaveServelt", urlPatterns = "/servlet-mvc/members/save")
 public class MvcMemberSaveServlet extends HttpServlet {
 
     private static MemberRepository memberRepository = MemberRepository.getInstance();
@@ -28,7 +28,7 @@ public class MvcMemberSaveServlet extends HttpServlet {
 
         String viewPath = "/WEB-INF/views/save-result.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
 
 
     }

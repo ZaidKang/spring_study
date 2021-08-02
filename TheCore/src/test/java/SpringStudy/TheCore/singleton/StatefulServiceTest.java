@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 public class StatefulServiceTest {
 
     @Test
-    void statefulServiceSingleton(){
+    void statefulServiceSingleton() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(TestConfig.class);
         StatefulService statefulService1 = ac.getBean(StatefulService.class);
         StatefulService statefulService2 = ac.getBean(StatefulService.class);
@@ -34,7 +34,7 @@ public class StatefulServiceTest {
     static class TestConfig {
 
         @Bean
-        public StatefulService statefulService(){
+        public StatefulService statefulService() {
             return new StatefulService();
         }
     }

@@ -20,15 +20,15 @@ public class ApplicationContextSameBeanFindTest {
 
     @Test
     @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 중복 오류가 발생한다")
-    void findBeanByTypeDuplicate(){
+    void findBeanByTypeDuplicate() {
         //MemberRepository bean = ac.getBean(MemberRepository.class);
         Assertions.assertThrows(NoUniqueBeanDefinitionException.class,
-                ()->ac.getBean(MemberRepository.class));
+                () -> ac.getBean(MemberRepository.class));
     }
 
     @Test
     @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 된다.")
-    void findBeanByName(){
+    void findBeanByName() {
         MemberRepository memberRepository = ac.getBean("memberRepository1", MemberRepository.class);
         org.assertj.core.api.Assertions.assertThat(memberRepository).isInstanceOf(MemberRepository.class);
 
@@ -36,28 +36,28 @@ public class ApplicationContextSameBeanFindTest {
 
     @Test
     @DisplayName("모두 꺼내고 싶어")
-    void findAllBeanByType(){
+    void findAllBeanByType() {
         Map<String, MemberRepository> beansOfType = ac.getBeansOfType(MemberRepository.class);
         for (String key : beansOfType.keySet()) {
-            System.out.println("key+ " + key+" value = " + beansOfType.get(key));
-            
+            System.out.println("key+ " + key + " value = " + beansOfType.get(key));
+
         }
         System.out.println("beansOfType = " + beansOfType);
         org.assertj.core.api.Assertions.assertThat(beansOfType.size()).isEqualTo(2);
-        
+
     }
 
 
     @Configuration
-     static class SameBeanConfig{
+    static class SameBeanConfig {
 
         @Bean
-        public MemberRepository memberRepository1(){
+        public MemberRepository memberRepository1() {
             return new MemoryMemberRepository();
         }
 
         @Bean
-        public MemberRepository memberRepository2(){
+        public MemberRepository memberRepository2() {
             return new MemoryMemberRepository();
         }
     }

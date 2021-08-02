@@ -12,7 +12,7 @@ public class SingletonTest {
 
     @Test
     @DisplayName("스프링 없는 순수한 DI 컨테이너")
-    void pureContainer(){
+    void pureContainer() {
         Appconfig appconfig = new Appconfig();
 
         MemberService memberService1 = appconfig.memberService();
@@ -29,7 +29,7 @@ public class SingletonTest {
 
     @Test
     @DisplayName("싱글톤 패턴을 적용한 객체 사용")
-    void singletonServiceTest(){
+    void singletonServiceTest() {
         SingletonService singletonService = SingletonService.getInstance();
         SingletonService singletonService2 = SingletonService.getInstance();
 
@@ -50,10 +50,10 @@ public class SingletonTest {
 
     @Test
     @DisplayName("스프링 컨테이너가 싱글톤으로 작동하는지 test해보자자")
-    void springContainer(){
+    void springContainer() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(Appconfig.class);
-        MemberService memberService1 = ac.getBean("memberService",MemberService.class);
-        MemberService memberService2 = ac.getBean("memberService",MemberService.class);
+        MemberService memberService1 = ac.getBean("memberService", MemberService.class);
+        MemberService memberService2 = ac.getBean("memberService", MemberService.class);
 
         System.out.println("memberService1 = " + memberService1);
         System.out.println("memberService2 = " + memberService2);

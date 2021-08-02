@@ -12,7 +12,7 @@ import java.io.IOException;
 http://localhost:8080/request-param?username=hello&age=20
  */
 
-@WebServlet(name="requestParamServlet", urlPatterns = "/request-param")
+@WebServlet(name = "requestParamServlet", urlPatterns = "/request-param")
 public class RequestParamServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,14 +32,11 @@ public class RequestParamServlet extends HttpServlet {
         System.out.println("");
 
 
-
         System.out.println("이름이 같은 파라미터에 여러값이 들어왔을 경우");
         String[] names = req.getParameterValues("username");
         for (String name : names) {
             System.out.println("username = " + name);
         }
-
-
 
 
         //허전하니깐 응답부분

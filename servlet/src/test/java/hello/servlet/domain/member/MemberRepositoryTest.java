@@ -17,7 +17,7 @@ public class MemberRepositoryTest {
 
     @Test
     @DisplayName("저장테스트")
-    void save(){
+    void save() {
 
         //given
         Member member = new Member("Zaid", 23);
@@ -31,7 +31,7 @@ public class MemberRepositoryTest {
 
     @Test
     @DisplayName("전체 조회 테스트")
-    void findAll(){
+    void findAll() {
         //given
         Member member = new Member("player1", 23);
         Member member2 = new Member("player2", 24);

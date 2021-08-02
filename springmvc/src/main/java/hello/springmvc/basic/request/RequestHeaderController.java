@@ -38,20 +38,16 @@ public class RequestHeaderController {
         log.info("myCookie={}", cookie);
 
 
-
         //-----------------------------------------------------------------------------------------------------------------
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.add("keyA","value1");
-        map.add("keyA","value2");
+        map.add("keyA", "value1");
+        map.add("keyA", "value2");
 
         List<String> values = map.get("keyA");
         log.info("멀티밸류맵 실험 {}", values);
 
         return "ok";
     }
-
-
-
 
 
 }

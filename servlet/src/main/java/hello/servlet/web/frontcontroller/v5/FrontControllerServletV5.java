@@ -27,7 +27,7 @@ public class FrontControllerServletV5 extends HttpServlet {
     Map<String, Object> handlerMappingMap = new HashMap<>();
     List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
 
-    public FrontControllerServletV5(){
+    public FrontControllerServletV5() {
         initHandlerMappingMap();
         intiHandlerAdapters();
     }
@@ -69,7 +69,7 @@ public class FrontControllerServletV5 extends HttpServlet {
 
     private MyHandlerAdapter getHandlerAdapter(Object handler) {
         for (MyHandlerAdapter adapter : handlerAdapters) {
-            System.out.println("핸들러 어댑터 리스트의 크기 = "+ handlerAdapters.size());
+            System.out.println("핸들러 어댑터 리스트의 크기 = " + handlerAdapters.size());
             System.out.println(adapter);
 
 
@@ -77,7 +77,7 @@ public class FrontControllerServletV5 extends HttpServlet {
                 return adapter;
             }
         }
-        throw new IllegalArgumentException("handler adapter를 찾을 수 없습니다. 사유: handler="+handler);
+        throw new IllegalArgumentException("handler adapter를 찾을 수 없습니다. 사유: handler=" + handler);
     }
 
     private Object getHandler(HttpServletRequest request) {

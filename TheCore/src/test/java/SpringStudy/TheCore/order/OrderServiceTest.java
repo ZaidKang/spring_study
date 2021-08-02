@@ -16,23 +16,21 @@ public class OrderServiceTest {
     OrderService orderService;
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         Appconfig appconfig = new Appconfig();
-        memberService=appconfig.memberService();
-        orderService=appconfig.orderService();
+        memberService = appconfig.memberService();
+        orderService = appconfig.orderService();
     }
 
 
-
     @Test
-    void CreateOrder(){
+    void CreateOrder() {
         Long memberId = 1L;
-        Member member = new Member(memberId,"memberA", Grade.VIP);
+        Member member = new Member(memberId, "memberA", Grade.VIP);
         memberService.findMember(memberId);
 
-        Order order = orderService.createOrder(memberId,"ipad",10000);
+        Order order = orderService.createOrder(memberId, "ipad", 10000);
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
-
 
 
     }

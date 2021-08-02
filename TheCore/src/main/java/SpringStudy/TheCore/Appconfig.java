@@ -24,22 +24,22 @@ public class Appconfig {
 
     //역할과 구현을 정확하게 명시하기 위해 리팩토링
     @Bean
-    public MemberService memberService(){
+    public MemberService memberService() {
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
-    public MemberRepository memberRepository(){
+    public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
     @Bean
-    public OrderService orderService(){
-        return new OrderServiceImpl(memberRepository(),discountPolicy());
+    public OrderService orderService() {
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
-    public DiscountPolicy discountPolicy(){
+    public DiscountPolicy discountPolicy() {
         return new FixDiscountPolicy();
     }
 

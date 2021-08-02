@@ -19,7 +19,7 @@ public class ModelView {
         return viewName;
     }
 
-    public void setModel(Map<String,Object> model){
+    public void setModel(Map<String, Object> model) {
         this.model = model;
     }
 

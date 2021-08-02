@@ -15,6 +15,6 @@
         <constructor-arg name="discountPolicy" ref="discountPolicy"/>
     </bean>
 
-    <bean id="discountPolicy" class="SpringStudy.TheCore.discount.RateDiscountPolicy" />
+    <bean id="discountPolicy" class="SpringStudy.TheCore.discount.RateDiscountPolicy"/>
 
 </beans>

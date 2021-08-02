@@ -11,7 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AutoAppConfigTest {
 
     @Test
-    void basicScan(){
+    void basicScan() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
 
         //실제 AutoAppconfig를 확인해보면 @Configuration 이랑 @ComponentScan밖에 없는데 AutoAppConfig을 컨테이너로 넣으면

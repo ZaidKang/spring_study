@@ -11,7 +11,7 @@ public class LogTestController {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @RequestMapping("/log-test")
-    public String logTest(){
+    public String logTest() {
         String name = "Spring";
         //log.info("info log={}", name);
         //name이 {}안에 박혀서 출력이 되네 신기하노

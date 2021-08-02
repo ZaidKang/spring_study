@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-@WebServlet(name="requestBodyJsonServlet", urlPatterns = "/request-body-json")
+@WebServlet(name = "requestBodyJsonServlet", urlPatterns = "/request-body-json")
 public class RequestBodyJsonServlet extends HttpServlet {
 
     //json형태의 data를 객체로 변환하기 위해서 스프링이 제공해주는 라이브러리인 잭슨을 사용하는 부분
