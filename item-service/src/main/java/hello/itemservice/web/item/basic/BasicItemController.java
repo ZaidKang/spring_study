@@ -5,8 +5,7 @@ import hello.itemservice.domain.item.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -31,13 +30,15 @@ public class BasicItemController {
     만약에 생성자가 1개 있으면 스프링에서는 생략이 가능하대 그래서 생략한거고
 
     @RequiredArgsConstructor는 lombok 어노테이션인데 이걸 붙히면 final이 붙은애를 가지고 저 생성자를 만들어준대
+    그래서 이 어노테이션 덕분에 생성자를 만드는 코드 자체도 생략된거임
     그러니깐 정리하자면,,,,
 
     @RequiredArgsConstructor만 붙히면 생성자가 1개기 때문에 위의 코드가 완성되면서 dependency injection이 된다는 말씀
+    즉 저 어노테이션만 붙으면 아무것도 없어도 생성자를 만들어주면서 autowired로 dependency injection도 된다.
 
      */
 
-
+    //전체 상품 목록
     @GetMapping
     public String items(Model model) {
         List<Item> items = itemRepository.findAll();
@@ -49,5 +50,35 @@ public class BasicItemController {
     public void init() {
         itemRepository.save(new Item("testA", 10000, 10));
         itemRepository.save(new Item("testB", 20000, 20));
+    }
+
+    //id에 해당하는 상품 상세
+    @GetMapping("/{itemId}")
+    public String item(@PathVariable long itemId, Model model) {
+        Item item = itemRepository.findById(itemId);
+        model.addAttribute(item);
+        return "basic/item";
+    }
+
+    //상품 등록 폼
+    @GetMapping("/add")
+    public String addForm() {
+        return "basic/addForm";
+    }
+
+    @PostMapping("/add")
+    public String addItemV1(@RequestParam String itemName,
+                            @RequestParam int price,
+                            @RequestParam Integer quantity,
+                            Model model) {
+        Item item = new Item();
+        item.setItemName(itemName);
+        item.setPrice(price);
+        item.setQuantity(quantity);
+
+        itemRepository.save(item);
+
+        model.addAttribute("item", item);
+        return "basic/item";
     }
 }
