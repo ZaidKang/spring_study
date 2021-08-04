@@ -71,6 +71,9 @@ public class ItemRepositoryTest {
     void updateItem(){
         //given
         Item itemA = new Item("itemA", 2000, 50);
+        Item itemC = new Item("itemC", 29999, 709);
+
+        Item findItemC = itemRepository.save(itemC);
         Item findItemA = itemRepository.save(itemA);
 
         //when
